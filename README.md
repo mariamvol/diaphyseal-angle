@@ -96,6 +96,42 @@ If detection fails / low score:
 - If your X-rays are huge, detector input is resized (default max side = 1024).
 - The regressor always predicts **acute** angle in `[0, 90]`, then we convert to obtuse NSA.
 
+---
+## Google Colab Quick Start
+Run the full NSA inference pipeline in Google Colab.
+
+###Clone repository
+```python
+!git clone https://github.com/YOUR_USERNAME/diaphyseal-angle.git
+%cd diaphyseal-angle
+```
+###Install dependencies
+```python
+!pip install -r requirements.txte
+```
+###Download model weights (from Releases)
+```python
+!wget https://github.com/mariamvol/diaphyseal-angle/releases/download/v0.1.0/roi_detector_best.pt
+!wget https://github.com/mariamvol/diaphyseal-angle/releases/download/v0.1.0/nsa_regressor_best.pt
+```
+###Upload an X-ray image
+```python
+from google.colab import files
+files.upload()  # upload xray.jpg
+```
+###Run inference
+```python
+!python -m diaphyseal_angle.infer_one \
+    --img xray.jpg \
+    --det roi_detector_best.pt \
+    --reg nsa_regressor_best.pt \
+    --out_json result.json \
+    --out_vis vis.png
+```
+###Output
+- `result.json` — numeric results
+- `vis.png` — visualization with bbox and predicted NSA
+---
 ## License
 
 MIT
