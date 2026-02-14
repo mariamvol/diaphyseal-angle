@@ -37,8 +37,6 @@ You need two weight files:
 - `roi_detector_best.pt`  (detector)
 - `nsa_regressor_best.pt` (regressor)
 
-Recommended: store them in **GitHub Releases** and download manually.
-
 Locally you can place them like:
 ```
 weights/roi_detector_best.pt
