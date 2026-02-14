@@ -98,26 +98,26 @@ If detection fails / low score:
 ## Google Colab Quick Start
 Run the full NSA inference pipeline in Google Colab.
 
-###Clone repository
+### Clone repository
 ```python
 !git clone https://github.com/YOUR_USERNAME/diaphyseal-angle.git
 %cd diaphyseal-angle
 ```
-###Install dependencies
+### Install dependencies
 ```python
 !pip install -r requirements.txte
 ```
-###Download model weights (from Releases)
+### Download model weights (from Releases)
 ```python
 !wget https://github.com/mariamvol/diaphyseal-angle/releases/download/v0.1.0/roi_detector_best.pt
 !wget https://github.com/mariamvol/diaphyseal-angle/releases/download/v0.1.0/nsa_regressor_best.pt
 ```
-###Upload an X-ray image
+### Upload an X-ray image
 ```python
 from google.colab import files
 files.upload()  # upload xray.jpg
 ```
-###Run inference
+### Run inference
 ```python
 !python -m diaphyseal_angle.infer_one \
     --img xray.jpg \
@@ -126,7 +126,7 @@ files.upload()  # upload xray.jpg
     --out_json result.json \
     --out_vis vis.png
 ```
-###Output
+### Output
 - `result.json` — numeric results
 - `vis.png` — visualization with bbox and predicted NSA
 ---
